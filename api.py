@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 
-from Employee import Employee
+from models.employee import Employee
 
 
 # Define the MariaDB engine using MariaDB Connector/Python
@@ -58,3 +58,6 @@ def deleteEmployee(id):
     '''刪除一筆員工資料'''
     Session.query(Employee).filter(Employee.id == id).delete()
     Session.commit()
+
+
+selectAll()
