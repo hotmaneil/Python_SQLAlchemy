@@ -12,6 +12,12 @@ print('### Employees ###')
 for employee in employees:
     print(f'  - {employee.first_name} {employee.last_name}, phone: {employee.contact_details.phone_number}')
 
+# Get employees by name
+print('### Get one employee ###')
+filterEmployees = session.query(Employee).filter_by(first_name='Sun')
+for employee in filterEmployees:
+    print(f'  - {employee.first_name} {employee.last_name}, phone: {employee.contact_details.phone_number}')
+
 # Get all projects
 projects = session.query(Project).all()
 print('### Projects ###')
