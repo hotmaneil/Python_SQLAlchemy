@@ -36,3 +36,9 @@ class Employee(Base):
         self.first_name = firstname
         self.last_name = lastname
         self.departments = department
+
+    def __init__(self, firstname, lastname, departmentId):
+        self.first_name = firstname
+        self.last_name = lastname
+        self.active = True
+        self.department_id = departmentId

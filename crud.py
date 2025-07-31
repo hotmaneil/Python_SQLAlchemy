@@ -8,6 +8,13 @@ session = Session()
 employees = session.query(Employee).all()
 
 
+def addEmployee(insertData: Employee):
+    '''新增員工資料'''
+    # newEmployee = Employee(insertData)
+    session.add(insertData)
+    session.commit()
+
+
 def updateEmployee(Id: int, updateData: employeeInputModel):
     '''更新員工資料'''
     filterEmployees = session.query(Employee).get(Id)
@@ -16,5 +23,15 @@ def updateEmployee(Id: int, updateData: employeeInputModel):
     session.commit()
 
 
-toUpdateData = employeeInputModel(first_name="Sun", last_name="Neil")
-updateEmployee(5, toUpdateData)
+def deleteEmployee(Id: int):
+    '''刪除員工資料'''
+    session.query(Employee).filter(Employee.id == Id).delete()
+    session.commit()
+
+
+# toUpdateData = employeeInputModel(first_name="Sun", last_name="Neil")
+# updateEmployee(5, toUpdateData)
+# toAddData = Employee(firstname="Milk",
+#                      lastname="Pink", departmentId=2)
+# addEmployee(toAddData)
+deleteEmployee(6)
